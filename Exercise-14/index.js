@@ -13,47 +13,47 @@ console.log(`Frase \n ${surprisingFact}`)
 // of this complete object.
 
 const familyTree = [
-  {
-    name: "Person 1",
-    children: [
-      {
-        name: "Person 2",
+    {
+        name: "Person 1",
         children: [
-          {
-            name: "Person 3",
-            children: [
-              {
-                name: "Person 4",
-              },
-            ],
-          },
+            {
+                name: "Person 2",
+                children: [
+                    {
+                        name: "Person 3",
+                        children: [
+                            {
+                                name: "Person 4",
+                            },
+                        ],
+                    },
+                ],
+            },
         ],
-      },
-    ],
-  },
+    },
 ];
 const flatten = data => {
-    return data.reduce((r, { children, ...rest}) => {
-      r.push(rest);
-      if (children) r.push(...flatten(children));
-      return r;
+    return data.reduce((r, { children, ...rest }) => {
+        r.push(rest);
+        if (children) r.push(...flatten(children));
+        return r;
     }, [])
-  }
+}
 console.table(flatten(familyTree));
-console.dir(familyTree, {depth: null})
+console.dir(familyTree, { depth: null })
 // Challenge 3:
 //
 // Output a count value every time the importantTask function is called.
 // Reset the count value after 4 function calls.
 
-function importantTask(
-    
-) {console.count()}
+function importantTask() {
+   console.count()
+}
 
-
 importantTask();
 importantTask();
 importantTask();
 importantTask();
+console.countReset()
 importantTask();
 importantTask();
